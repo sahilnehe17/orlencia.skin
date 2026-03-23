@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Orli by Orlencia — Your Personal Skin Expert</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0e1512;--bg2:#131d17;--bg3:#192318;
+  --surf:#1f2e22;--surf2:#243428;
+  --gold:#c9a84c;--gold2:#e8d5a3;--gold3:rgba(201,168,76,0.15);
+  --green:#3a7d5a;--green2:#2d6047;--sage:#7aab8a;
+  --cream:#f5efe4;--text:#edeae2;--text2:#a8a89e;--text3:#6e7068;
+  --bdr:rgba(201,168,76,0.14);--bdr2:rgba(255,255,255,0.06);
+  --ubg:#1e4d35;--ubdr:rgba(58,125,90,0.4);
+  --bbg:#1a2b1e;--bbdr:rgba(58,125,90,0.25);
+  --r:18px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;overflow:hidden;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;height:100dvh;}
+
+.hdr{background:linear-gradient(160deg,#0a1610,#152019,#0e1a13);border-bottom:1px solid var(--bdr);padding:10px 14px;display:flex;align-items:center;gap:10px;flex-shrink:0;position:relative;}
+.hdr::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0.3;}
+.av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#2d6047,#1a3d28);border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;box-shadow:0 0 14px rgba(201,168,76,0.18);}
+.avl{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--gold2);}
+.odot{position:absolute;bottom:1px;right:1px;width:9px;height:9px;background:#4ade80;border-radius:50%;border:2px solid var(--bg);animation:glow 2s ease infinite;}
+@keyframes glow{0%,100%{box-shadow:0 0 0 0 rgba(74,222,128,0.5)}50%{box-shadow:0 0 0 3px rgba(74,222,128,0)}}
+.hinfo{flex:1;min-width:0;}
+.hname{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--cream);letter-spacing:0.04em;line-height:1.1;}
+.hname span{color:var(--gold);}
+.hsub{font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage);margin-top:2px;opacity:0.8;}
+.freebadge{background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.25);border-radius:20px;padding:3px 10px;font-size:0.52rem;letter-spacing:0.1em;text-transform:uppercase;color:#4ade80;flex-shrink:0;}
+
+.chips{background:var(--bg2);border-bottom:1px solid var(--bdr2);padding:6px 8px;display:flex;gap:5px;overflow-x:auto;flex-shrink:0;scrollbar-width:none;}
+.chips::-webkit-scrollbar{display:none;}
+.chip{background:var(--surf);border:1px solid var(--bdr);border-radius:20px;padding:4px 10px;font-size:0.6rem;color:var(--gold2);white-space:nowrap;cursor:pointer;transition:all 0.15s;flex-shrink:0;font-family:'DM Sans',sans-serif;}
+.chip:hover,.chip:active{background:var(--surf2);border-color:var(--gold);color:var(--gold);transform:translateY(-1px);}
+
+.chat{flex:1;overflow-y:auto;padding:12px 10px 6px;display:flex;flex-direction:column;gap:10px;}
+.chat::-webkit-scrollbar{width:3px;}
+.chat::-webkit-scrollbar-thumb{background:rgba(201,168,76,0.2);border-radius:3px;}
+
+.mrow{display:flex;gap:7px;align-items:flex-start;animation:si 0.25s ease;}
+@keyframes si{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+.mrow.u{flex-direction:row-reverse;}
+.mav{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;font-family:'Cormorant Garamond',serif;font-size:0.9rem;}
+.mav.b{background:linear-gradient(135deg,#2d6047,#1a3d28);border:1px solid rgba(201,168,76,0.3);color:var(--gold2);}
+.mav.u{background:var(--ubg);border:1px solid var(--ubdr);color:var(--sage);font-size:0.65rem;}
+.mwrap{max-width:84%;display:flex;flex-direction:column;gap:2px;}
+.mrow.u .mwrap{align-items:flex-end;}
+.mb{padding:9px 13px;border-radius:var(--r);font-size:0.82rem;line-height:1.78;word-break:break-word;}
+.mb.b{background:var(--bbg);border:1px solid var(--bbdr);border-top-left-radius:3px;color:var(--text);}
+.mb.u{background:var(--ubg);border:1px solid var(--ubdr);border-top-right-radius:3px;color:var(--cream);}
+.mb strong,.mb b{color:var(--gold2);font-weight:600;}
+.mb em{color:var(--sage);font-style:italic;}
+.mb ul,.mb ol{padding-left:1.2rem;margin:0.3rem 0;}
+.mb li{margin-bottom:0.25rem;}
+.mb p{margin-bottom:0.4rem;}
+.mb p:last-child,.mb li:last-child{margin-bottom:0;}
+.mt{font-size:0.44rem;color:var(--text3);letter-spacing:0.05em;padding:0 3px;}
+.mrow.u .mt{text-align:right;}
+
+.trow{display:flex;gap:7px;align-items:flex-start;animation:si 0.25s ease;}
+.tbub{background:var(--bbg);border:1px solid var(--bbdr);border-radius:var(--r);border-top-left-radius:3px;padding:9px 13px;display:flex;gap:4px;align-items:center;}
+.td{width:6px;height:6px;background:var(--gold);border-radius:50%;opacity:0.4;animation:tb 1.2s ease infinite;}
+.td:nth-child(2){animation-delay:.2s}.td:nth-child(3){animation-delay:.4s}
+@keyframes tb{0%,60%,100%{transform:translateY(0);opacity:0.3}30%{transform:translateY(-5px);opacity:1}}
+
+.wcard{background:linear-gradient(135deg,var(--bg3),var(--surf));border:1px solid var(--bdr);border-radius:14px;padding:14px;position:relative;overflow:hidden;}
+.wcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.wb{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;letter-spacing:0.15em;color:var(--cream);}
+.wb span{color:var(--gold);}
+.wsl{font-family:'Cormorant Garamond',serif;font-size:0.78rem;font-style:italic;color:var(--gold);margin:4px 0 10px;opacity:0.85;}
+.wbody{font-size:0.76rem;color:var(--text2);line-height:1.6;}
+.wdiv{height:1px;background:var(--bdr);margin:10px 0;}
+.wtags{display:flex;flex-wrap:wrap;gap:4px;}
+.wtag{font-size:0.5rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);border:1px solid rgba(255,255,255,0.07);padding:2px 6px;border-radius:3px;}
+
+.errbar{background:rgba(220,38,38,0.12);border:1px solid rgba(220,38,38,0.25);border-radius:8px;padding:7px 12px;margin:0 8px;font-size:0.74rem;color:#fca5a5;display:none;text-align:center;}
+.errbar.show{display:block;}
+
+.inpa{background:var(--bg2);border-top:1px solid var(--bdr2);padding:9px 10px;display:flex;gap:7px;align-items:flex-end;flex-shrink:0;}
+.inpw{flex:1;background:var(--surf);border:1px solid rgba(201,168,76,0.18);border-radius:22px;display:flex;align-items:center;padding:7px 14px;transition:border-color 0.2s;}
+.inpw:focus-within{border-color:var(--gold);}
+#inp{flex:1;background:none;border:none;outline:none;font-family:'DM Sans',sans-serif;font-size:0.82rem;color:var(--text);resize:none;max-height:90px;line-height:1.5;}
+#inp::placeholder{color:var(--text3);font-style:italic;font-size:0.78rem;}
+.sbtn{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--green2));border:1px solid rgba(201,168,76,0.35);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:transform 0.15s,box-shadow 0.15s;box-shadow:0 2px 10px rgba(45,96,71,0.4);}
+.sbtn:hover{transform:scale(1.08);box-shadow:0 4px 16px rgba(45,96,71,0.5);}
+.sbtn:active{transform:scale(0.95);}
+.sbtn:disabled{opacity:0.45;cursor:not-allowed;transform:none;box-shadow:none;}
+
+.sharebar{background:var(--bg);border-top:1px solid var(--bdr2);padding:6px 12px;display:flex;align-items:center;justify-content:center;gap:8px;flex-shrink:0;}
+.slbl{font-size:0.5rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text3);}
+.sbtn2{font-size:0.52rem;letter-spacing:0.08em;text-transform:uppercase;padding:3px 10px;border-radius:20px;border:1px solid;cursor:pointer;background:none;font-family:'DM Sans',sans-serif;transition:background 0.15s;text-decoration:none;display:inline-block;}
+.wa{color:#4ade80;border-color:rgba(74,222,128,0.25);}
+.wa:hover{background:rgba(74,222,128,0.08);}
+.ig{color:#f472b6;border-color:rgba(244,114,182,0.25);}
+.ig:hover{background:rgba(244,114,182,0.08);}
+.cp{color:var(--gold);border-color:var(--bdr);}
+.cp:hover{background:var(--gold3);}
+
+#toast{position:fixed;bottom:4.5rem;left:50%;transform:translateX(-50%) translateY(8px);background:var(--surf2);color:var(--gold);font-size:0.7rem;padding:0.65rem 1.3rem;border-radius:8px;border:1px solid var(--bdr);opacity:0;transition:all 0.3s;z-index:9999;white-space:nowrap;pointer-events:none;font-family:'DM Sans',sans-serif;}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+@media(max-width:420px){
+  .slbl{display:none;}
+  .mb{font-size:0.79rem;}
+}
+</style>
+</head>
+<body>
+
+<div id="toast"></div>
+
+<div class="hdr">
+  <div class="av"><span class="avl">O</span><div class="odot"></div></div>
+  <div class="hinfo">
+    <div class="hname">Orli <span>&#10022;</span> Your Personal Skin Expert</div>
+    <div class="hsub">&#9679; Online &middot; Powered by Orlencia</div>
+  </div>
+  <div class="freebadge">Free AI</div>
+</div>
+
+<div class="chips">
+  <div class="chip" onclick="send('What is Orlencia?')">&#127807; What is Orlencia?</div>
+  <div class="chip" onclick="send('Tell me about the founder and their vision')">&#128100; Founder</div>
+  <div class="chip" onclick="send('What products does Orlencia make?')">&#129516; Products</div>
+  <div class="chip" onclick="send('Why Korea and India fusion in skincare?')">Korea &#215; India</div>
+  <div class="chip" onclick="send('Tell me everything about Centella Asiatica in depth')">&#127807; Centella</div>
+  <div class="chip" onclick="send('Explain Neem for skin science in depth')">Neem</div>
+  <div class="chip" onclick="send('Turmeric and Curcumin skincare science')">Turmeric</div>
+  <div class="chip" onclick="send('Explain Amla benefits for skin')">Amla</div>
+  <div class="chip" onclick="send('Orlencia vs Minimalist — full honest comparison')">vs Minimalist</div>
+  <div class="chip" onclick="send('Orlencia vs Mamaearth full comparison')">vs Mamaearth</div>
+  <div class="chip" onclick="send('Orlencia vs SKIN1004 full comparison')">vs SKIN1004</div>
+  <div class="chip" onclick="send('Indian skincare market size and opportunity for Orlencia')">&#128202; Market</div>
+  <div class="chip" onclick="send('When is Orlencia launching and what is happening now?')">&#128640; Launch 2027</div>
+  <div class="chip" onclick="send('Tell me about Benzene Ring Pvt Ltd in detail')">Benzene Ring</div>
+  <div class="chip" onclick="send('Why should I choose Orlencia over other Indian skincare brands?')">Why Orlencia?</div>
+</div>
+
+<div class="errbar" id="err"></div>
+
+<div class="chat" id="chat">
+  <div class="wcard">
+    <div class="wb">Orlen<span>cia</span></div>
+    <div class="wsl">"Buy it once. Never regret it."</div>
+    <div class="wbody">Meet <strong>Orli</strong> — Orlencia's AI skin expert, powered by Google Gemini. Free to use. Ask anything about the brand, ingredients, competitors, market, or skincare.</div>
+    <div class="wdiv"></div>
+    <div class="wtags">
+      <span class="wtag">Free AI</span>
+      <span class="wtag">Brand Story</span>
+      <span class="wtag">Ingredients</span>
+      <span class="wtag">Competitors</span>
+      <span class="wtag">Market Data</span>
+      <span class="wtag">Korea &#215; India</span>
+      <span class="wtag">Launch 2027</span>
+    </div>
+  </div>
+</div>
+
+<div class="inpa">
+  <div class="inpw">
+    <textarea id="inp" rows="1" placeholder="Ask Orli anything about Orlencia…"
+      onkeydown="kd(event)" oninput="rsz(this)"></textarea>
+  </div>
+  <div class="sbtn" id="sb" onclick="go()">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e8d5a3" stroke-width="2">
+      <line x1="22" y1="2" x2="11" y2="13"/>
+      <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+    </svg>
+  </div>
+</div>
+
+<div class="sharebar">
+  <span class="slbl">Share Orlencia</span>
+  <a class="sbtn2 wa" id="waLink" href="#" target="_blank">WhatsApp</a>
+  <button class="sbtn2 cp" onclick="copyLink()">Copy Link</button>
+  <button class="sbtn2 ig" onclick="copyIG()">Instagram</button>
+</div>
+
+<script>
+const msgs = [];
+let busy = false;
+
+// Update WhatsApp share link with current URL
+document.getElementById('waLink').href =
+  'https://wa.me/?text=' + encodeURIComponent('🌿 Chat with Orli — Orlencia\'s AI skin guide: ' + window.location.href);
+
+function getT(){return new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});}
+function rsz(el){el.style.height='auto';el.style.height=Math.min(el.scrollHeight,90)+'px';}
+function kd(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();go();}}
+
+function fmt(t){
+  return t
+    .replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')
+    .replace(/\*(.*?)\*/g,'<em>$1</em>')
+    .replace(/^#{1,3} (.+)$/gm,'<strong>$1</strong>')
+    .replace(/^[-•] (.+)$/gm,'&bull; $1')
+    .replace(/\n\n/g,'<br><br>')
+    .replace(/\n/g,'<br>');
+}
+
+function addMsg(html, role){
+  const c = document.getElementById('chat');
+  const row = document.createElement('div');
+  row.className = 'mrow ' + role;
+  const av = document.createElement('div');
+  av.className = 'mav ' + role;
+  av.textContent = role === 'b' ? 'O' : '✦';
+  const wrap = document.createElement('div');
+  wrap.className = 'mwrap';
+  const bub = document.createElement('div');
+  bub.className = 'mb ' + role;
+  bub.innerHTML = fmt(html);
+  const tm = document.createElement('div');
+  tm.className = 'mt';
+  tm.textContent = getT();
+  wrap.appendChild(bub);
+  wrap.appendChild(tm);
+  if(role === 'b'){row.appendChild(av);row.appendChild(wrap);}
+  else{row.appendChild(wrap);row.appendChild(av);}
+  c.appendChild(row);
+  setTimeout(()=>row.scrollIntoView({behavior:'smooth',block:'start'}),50);
+}
+
+function showTyping(){
+  const c = document.getElementById('chat');
+  const r = document.createElement('div');
+  r.className = 'trow'; r.id = 'tr';
+  const av = document.createElement('div');
+  av.className = 'mav b'; av.textContent = 'O';
+  const bub = document.createElement('div');
+  bub.className = 'tbub';
+  bub.innerHTML = '<div class="td"></div><div class="td"></div><div class="td"></div>';
+  r.appendChild(av); r.appendChild(bub);
+  c.appendChild(r);
+  r.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function hideTyping(){const t=document.getElementById('tr');if(t)t.remove();}
+
+function showErr(msg){
+  const e = document.getElementById('err');
+  e.textContent = msg; e.classList.add('show');
+  setTimeout(()=>e.classList.remove('show'), 5000);
+}
+
+function send(q){document.getElementById('inp').value=q;go();}
+
+async function go(){
+  if(busy) return;
+  const inp = document.getElementById('inp');
+  const text = inp.value.trim();
+  if(!text) return;
+  inp.value = ''; inp.style.height = 'auto';
+  addMsg(text, 'u');
+  msgs.push({role:'user', content:text});
+  busy = true;
+  document.getElementById('sb').disabled = true;
+  showTyping();
+  try{
+    const res = await fetch('/api/chat',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({messages:msgs})
+    });
+    const data = await res.json();
+    hideTyping();
+    if(!res.ok){
+      showErr(data.error || 'Something went wrong. Please try again.');
+      msgs.pop();
+    } else {
+      msgs.push({role:'assistant', content:data.reply});
+      addMsg(data.reply, 'b');
+    }
+  } catch(e){
+    hideTyping();
+    showErr('Connection error. Please refresh and try again.');
+    msgs.pop();
+  }
+  busy = false;
+  document.getElementById('sb').disabled = false;
+  inp.focus();
+}
+
+function copyLink(){
+  navigator.clipboard.writeText(window.location.href)
+    .then(()=>toast('Link copied! Share it 🌿'))
+    .catch(()=>toast('Copy the link from your browser bar'));
+}
+function copyIG(){
+  const t = '🌿 Meet Orli by Orlencia\nIndia\'s first Korean × Ayurvedic skincare fusion.\nAsk the AI guide anything 👇\n' + window.location.href + '\nLaunching 2027 🇮🇳 · Follow @orlencia.skin';
+  navigator.clipboard.writeText(t).then(()=>toast('Copied for Instagram ✓')).catch(()=>toast('Could not copy — try manually'));
+}
+function toast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 2500);
+}
+
+// Opening greeting
+window.addEventListener('load', async ()=>{
+  msgs.push({role:'user', content:'Start the conversation. Begin with NAMASTE prominently and warmly, then introduce yourself as Orli from Orlencia briefly. Tell the user what you can help with in 3-4 clear points. Keep it concise and premium.'});
+  showTyping();
+  try{
+    const res = await fetch('/api/chat',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({messages:msgs})
+    });
+    const data = await res.json();
+    hideTyping();
+    if(res.ok){
+      msgs.push({role:'assistant', content:data.reply});
+      addMsg(data.reply, 'b');
+    } else {
+      addMsg('NAMASTE 🙏<br><br>I\'m <strong>Orli</strong> — your personal skin expert from <strong>Orlencia</strong>.<br><br>Ask me anything about the brand, ingredients, products, or skincare!', 'b');
+    }
+  } catch(e){
+    hideTyping();
+    addMsg('NAMASTE 🙏<br><br>I\'m <strong>Orli</strong> — your personal skin expert from <strong>Orlencia</strong>.<br><br>Ask me anything about the brand, ingredients, products, or skincare!', 'b');
+  }
+});
+</script>
+</body>
+</html>
